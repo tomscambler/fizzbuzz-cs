@@ -6,12 +6,23 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Oh, hai!");
-            Console.WriteLine("Arguments used: ");
-            foreach (string arg in args)
+            FizzBuzz fizzBuzz = new FizzBuzz();
+
+            int MAX;
+            string value;
+
+            do 
             {
-                Console.WriteLine(arg);
+                Console.WriteLine("How many numbers would you like to print?");
+                value = Console.ReadLine();
             }
+            while (!int.TryParse(value, out MAX));
+
+            for (int i = 1; i <= MAX; i++)
+            {
+                Console.WriteLine(fizzBuzz.FizzBuzzFor(i));
+            }
+            
         }
     }
 }
