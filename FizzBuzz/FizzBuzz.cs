@@ -21,12 +21,12 @@ namespace FizzBuzz
         }
         public string FizzBuzzFor(int n)
         {     
-            Rule ruleOfFizz     = new Rule("Fizz"    , "addon"    , 3  );
-            Rule ruleOfBuzz     = new Rule("Buzz"    , "addon"    , 5  );
-            Rule ruleOfBang     = new Rule("Bang"    , "addon"    , 7  );
-            Rule ruleOfFezz     = new Rule("Fezz"    , "addon"    , 13 );
-            Rule ruleOfBong     = new Rule("Bong"    , "overwrite", 11 );
-            Rule ruleOfFezzBong = new Rule("FezzBong", "overwrite", 143);
+            Rule ruleOfFizz     = new Rule("Fizz"    , "Add"    , 3  );
+            Rule ruleOfBuzz     = new Rule("Buzz"    , "Add"    , 5  );
+            Rule ruleOfBang     = new Rule("Bang"    , "Add"    , 7  );
+            Rule ruleOfFezz     = new Rule("Fezz"    , "Add"    , 13 );
+            Rule ruleOfBong     = new Rule("Bong"    , "Replace", 11 );
+            Rule ruleOfFezzBong = new Rule("FezzBong", "Replace", 143);
 
             List<Rule> listOfRules = new List<Rule>()
             {

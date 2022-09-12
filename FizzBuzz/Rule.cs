@@ -15,7 +15,7 @@ namespace FizzBuzz
             this.divisibilityTest = divisibilityTest;
         }
 
-        public bool IsDivisbleBy(int numerator, int denominator)
+        private bool IsDivisbleBy(int numerator, int denominator)
         {
             return numerator % denominator == 0;
         }
@@ -24,11 +24,11 @@ namespace FizzBuzz
         {
             if ( IsDivisbleBy(testNumber,divisibilityTest) )
             {
-                if (mode == "addon")
+                if (mode == "Add")
                 {
                     return resultString + keyword;
                 }
-                else if (mode == "overwrite")
+                else if (mode == "Replace")
                 {
                     return keyword;
                 }
