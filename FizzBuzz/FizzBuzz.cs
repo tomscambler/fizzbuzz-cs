@@ -2,7 +2,7 @@ namespace FizzBuzz
 {
     public class FizzBuzz
     {
-        private static bool IsDivisbleBy(int numerator, int denominator)
+        public bool IsDivisbleBy(int numerator, int denominator)
         {
             return numerator % denominator == 0;
         }
@@ -20,40 +20,39 @@ namespace FizzBuzz
             return result;
         }
         public string FizzBuzzFor(int n)
-        {
+        {     
+            Rule ruleOfFizz     = new Rule("Fizz"    , "addon"    , 3  );
+            Rule ruleOfBuzz     = new Rule("Buzz"    , "addon"    , 5  );
+            Rule ruleOfBang     = new Rule("Bang"    , "addon"    , 7  );
+            Rule ruleOfFezz     = new Rule("Fezz"    , "addon"    , 13 );
+            Rule ruleOfBong     = new Rule("Bong"    , "overwrite", 11 );
+            Rule ruleOfFezzBong = new Rule("FezzBong", "overwrite", 143);
+
+            List<Rule> listOfRules = new List<Rule>()
+            {
+                ruleOfFizz,
+                ruleOfBuzz,
+                ruleOfBang,
+                ruleOfFezz,
+                ruleOfBong,
+                ruleOfFezzBong
+            };
+
             String answer = "";
 
-            if (IsDivisbleBy(n,3))
+            foreach(Rule rule in listOfRules)
             {
-                answer += "Fizz";
+                answer = rule.ApplyTo(n, answer);
             }
-            if (IsDivisbleBy(n,13))
-            {
-                answer += "Fezz";
-            }
-            if (IsDivisbleBy(n,5))
-            {
-                answer += "Buzz";
-            }
-            if (IsDivisbleBy(n,7))
-            {
-                answer += "Bang";
-            }
-            if (IsDivisbleBy(n,11))
-            {
-                answer  = "Bong";
-            }
-            if (IsDivisbleBy(n,143))
-            {
-                answer  = "FezzBong";
-            }
+
             if (IsDivisbleBy(n,17))
             {
                 answer = ReverseInBatchesOf(4, answer);
             }
+
             if (answer=="")
             {
-                answer += n.ToString();
+                answer = n.ToString();
             }
             return answer;
         }
