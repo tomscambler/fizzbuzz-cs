@@ -19,6 +19,17 @@ namespace FizzBuzz
         {
             return numerator % denominator == 0;
         }
+        private string ReverseInBatchesOf(int n, string message)
+        {
+            string result = "";
+
+            while (message != "" )
+            {
+                result = message.Substring(0,n) + result;
+                message = message.Substring(n);
+            }
+            return result;
+        }
 
         public string ApplyTo(int testNumber, string resultString)
         {
@@ -31,6 +42,10 @@ namespace FizzBuzz
                 else if (mode == "Replace")
                 {
                     return keyword;
+                }
+                else if (mode == "Reverse")
+                {
+                    return ReverseInBatchesOf(4, resultString);
                 }
             }
             return resultString;
