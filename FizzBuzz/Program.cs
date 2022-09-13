@@ -17,22 +17,19 @@ namespace FizzBuzz
                 new Rule(""        , "Reverse", 17 )
             };
 
-            FizzBuzz fizzBuzz = new FizzBuzz(listOfRules);
-
-            int MAX;
-            string userInputInteger;
+            int maxNumber;
+            string userInput;
 
             do 
             {
                 Console.WriteLine("How many numbers would you like to print?");
-                userInputInteger = Console.ReadLine();
+                userInput = Console.ReadLine();
             }
-            while (!int.TryParse(userInputInteger, out MAX));
+            while (!int.TryParse(userInput, out maxNumber));
 
-            for (int i = 1; i <= MAX; i++)
-            {
-                Console.WriteLine(fizzBuzz.FizzBuzzFor(i));
-            }
+            FizzBuzz fizzBuzz = new FizzBuzz(listOfRules, maxNumber);
+
+            fizzBuzz.DoTheFizzBuzz();
         }
     }
 }

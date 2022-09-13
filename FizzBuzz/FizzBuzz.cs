@@ -3,25 +3,36 @@ namespace FizzBuzz
     public class FizzBuzz
     {
         public List<Rule> listOfRules;
-        public FizzBuzz(List<Rule> listOfRules)
+        public int maxNumber;
+        public FizzBuzz(List<Rule> listOfRules, int maxNumber)
         {
             this.listOfRules = listOfRules;
+            this.maxNumber = maxNumber;
         }
 
-        public string FizzBuzzFor(int n)
+        public string FizzBuzzOfThisInteger(int n)
         {     
-            String answer = "";
+            String resultString = "";
 
             foreach(Rule rule in listOfRules)
             {
-                answer = rule.ApplyTo(n, answer);
+                resultString = rule.ApplyTo(n, resultString);
             }
 
-            if (answer=="")
+            if (resultString=="")
             {
-                answer = n.ToString();
+                resultString = n.ToString();
             }
-            return answer;
+
+            return resultString;
+        }
+
+        public void DoTheFizzBuzz()
+        {
+            for (int i = 1; i <= maxNumber; i++)
+            {
+                Console.WriteLine(FizzBuzzOfThisInteger(i));
+            }
         }
     }
 }

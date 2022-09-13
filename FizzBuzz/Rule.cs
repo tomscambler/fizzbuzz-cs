@@ -5,8 +5,6 @@ namespace FizzBuzz
         public string keyword;
         public string mode;
         public int    divisibilityTest;
-        public int    testNumber;
-        public string resultString;
 
         public Rule(string keyword, string mode, int divisibilityTest)
         {
@@ -14,8 +12,7 @@ namespace FizzBuzz
             this.mode             = mode;
             this.divisibilityTest = divisibilityTest;
         }
-
-        private bool IsDivisbleBy(int numerator, int denominator)
+        private bool IsAMultipleOf(int denominator, int numerator)
         {
             return numerator % denominator == 0;
         }
@@ -25,27 +22,25 @@ namespace FizzBuzz
 
             while (message != "" )
             {
-                result = message.Substring(0,n) + result;
+                result  = message.Substring(0,n) + result;
                 message = message.Substring(n);
             }
             return result;
         }
-
         public string ApplyTo(int testNumber, string resultString)
         {
-            if ( IsDivisbleBy(testNumber,divisibilityTest) )
+            if (IsAMultipleOf(divisibilityTest, testNumber))
             {
-                if (mode == "Add")
+                switch(mode)
                 {
-                    return resultString + keyword;
-                }
-                else if (mode == "Replace")
-                {
-                    return keyword;
-                }
-                else if (mode == "Reverse")
-                {
-                    return ReverseInBatchesOf(4, resultString);
+                    case "Add":
+                        return resultString + keyword;
+                    case "Replace":
+                        return keyword;
+                    case "Reverse":
+                        return ReverseInBatchesOf(4, resultString);
+                    default:
+                        return resultString;
                 }
             }
             return resultString;
